@@ -13,9 +13,16 @@ Item.delete_all
 OrderItem.delete_all
 
 status = ["Pending", "Purchased"]
+orders = []
 (5).times do
     user = User.create(name: Faker::Name.unique.name)
-    # Order.create(status: status.sample, user_id: user.id)
+    orders << Order.create(status: status.sample, user_id: user.id)
 end
+
+(10).times do 
+    item = Item.create(name: Faker::Food.unique.dish, price: Faker::Number.decimal(l_digits:2))
+    OrderItem.create(item_id: item.id, order_id: orders.sample.id)
+end
+
 
 # (15).times do
