@@ -21,12 +21,12 @@ user = User.create(name: Faker::Name.unique.name)
 end
 
 (10).times do 
-    item = Item.create(name: Faker::Food.unique.dish, price: Faker::Number.decimal(l_digits:2))
+    item = Item.create(name: Faker::Commerce.product_name, price: Faker::Number.decimal(l_digits:2))
     OrderItem.create(item_id: item.id, order_id: orders.sample.id)
 end
 
 order = Order.create(status: status[0], user_id: user.id)
-item = Item.create(name: Faker::Food.unique.dish, price: Faker::Number.decimal(l_digits:2))
+item = Item.create(name: Faker::Commerce.product_name, price: Faker::Number.decimal(l_digits:2))
 OrderItem.create(item_id: item.id, order_id: order.id)
 
 # (15).times do

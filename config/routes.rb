@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :destroy, :edit, :update, :show]
 
   post "/add_order/:id", to: "order_items#add_or_create", as: "add_order"
-  get "/greetings", to: "static#greetings"
+  get "/", to: "static#greetings"
   get "/goodbye", to: "static#goodbye", as: "bye"
   get "/about", to: "static#about"
   get "/contact", to: "static#contact"
