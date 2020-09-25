@@ -19,12 +19,13 @@ class UsersController < ApplicationController
     end
 
     def update
-
+        @user.update(user_params)
+        redirect_to user_path(@user)
     end
 
     def destroy
-        
-
+        @user.destroy
+        redirect_to bye_path
     end
 
     private
