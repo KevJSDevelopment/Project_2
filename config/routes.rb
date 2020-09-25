@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :show, :create]
   resources :users, only: [:new, :create, :destroy, :edit, :update, :show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get "/greetings", to: "static#greetings"
+
 end
