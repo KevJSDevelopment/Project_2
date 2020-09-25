@@ -8,8 +8,11 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
-  def create
-    ##customized create
-  end
+  # def add_or_create
+  #   ##customized create
+  #   # byebug
+  #   # @user = User.find(params[:id])
+    
+  # end
 
 end
