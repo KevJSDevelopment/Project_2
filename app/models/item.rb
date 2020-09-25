@@ -4,7 +4,7 @@ class Item < ApplicationRecord
 
     def self.search(search)
         if search 
-            item = Item.where("category.includes? search")
+            item = Item.where("category LIKE '%#{search}%'")
         else 
             Item.all
         end
