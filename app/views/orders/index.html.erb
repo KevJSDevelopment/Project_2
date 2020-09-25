@@ -1,0 +1,13 @@
+<h1> My Orders </h1>
+
+<ul>
+    <% @orders.each do |order| %>
+        <br>
+        <li> 
+            Order Number: <%= order.id %>
+        <br>Status: <%= order.status%>
+        <br>Total Order Price: <%= order.total_price%> 
+        <br><%= button_to "View Order", order_path(order.id), method: 'get'%>
+        </li>
+    <%end%>
+</ul>

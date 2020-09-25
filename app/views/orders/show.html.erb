@@ -1,0 +1,12 @@
+<h1> Order Number: <%= @order.id%> </h1>
+
+<div> Status: <%= @order.status%> </div>
+
+<ul>
+    <% @order.items.each do |item| %>
+        <li> Item: <%= link_to item.name, item_path(item.id) %> Price: <%= item.price %> </li>
+    <%end%>
+
+</ul>
+
+<div> Order Total: <%= @order.total_price %> </div>
