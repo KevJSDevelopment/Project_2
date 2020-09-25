@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = Order.where(user_id: 11)
+    @orders = Order.where(user_id: User.all[0].id)
   end
 
   def show

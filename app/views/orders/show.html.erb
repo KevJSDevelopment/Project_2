@@ -4,9 +4,9 @@
 
 <ul>
     <% @order.items.each do |item| %>
-        <li> Item: <%= link_to item.name, item_path(item.id) %> Price: <%= item.price %> </li>
+        <li> Item: <%= link_to item.name, item_path(item.id) %> Price: <%= number_to_currency(item.price) %> </li>
     <%end%>
 
 </ul>
 
-<div> Order Total: <%= @order.total_price %> </div>
+<div> Order Total: <%= number_to_currency(@order.total_price) %> </div>
