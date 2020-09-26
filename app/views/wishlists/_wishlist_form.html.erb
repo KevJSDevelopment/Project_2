@@ -1,0 +1,15 @@
+<% if @wishlist.errors %>
+  <ul>
+    <% @wishlist.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+
+<%= form_for @wishlist do |f| %>
+  <%= f.label :name, "Name:" %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.submit button_text %>
+<% end %>

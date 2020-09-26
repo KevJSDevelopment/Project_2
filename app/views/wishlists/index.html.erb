@@ -1,0 +1,19 @@
+<h2> My Wishlists </h2>
+
+<ul>
+<% @wishlists.each do |wishlist|%>
+<br>
+<li><%= wishlist.name %>
+    <br>
+    <%= link_to "View", wishlist_path(wishlist.id) %>/ 
+    <%= link_to "Edit", edit_wishlist_path(wishlist.id) %>/
+    <%= link_to "Delete", wishlist_path(wishlist.id),
+                          method: "delete",
+                          data: {:confirm => "Are you sure you want to delete this wishlist?"} %>
+</li>
+
+<% end %>
+
+</ul>
+
+<%= button_to "Create New Wishlist", new_wishlist_path, method: "get" %>
