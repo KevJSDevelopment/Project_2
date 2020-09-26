@@ -1,9 +1,16 @@
-<h2> All Items </h2>
-
+<h1> Products </h1>
 <div>
   <ul>
-    <% @items.each do |item| %>
-      <li> <%= link_to item.name, item_path(item) %> <%= number_to_currency(item.price) %> </li>
-    <% end %>
+    <% @categories.each do |category| %>
+      <br>
+      <div class="category"> <%= category.capitalize %> </div>
+      <% @items.each do |item| %>
+        <%if item.category == category%>
+          <br>
+          <li> <%= link_to item.name, item_path(item) %> <%= number_to_currency(item.price) %> </li>
+        <%end%>
+      </li>
+      <% end %>
+    <%end%>
   </ul>
 </div>

@@ -1,8 +1,18 @@
-
 <div class= "header">
-    <%= form_tag(items_path, method: :get) do %>
-    <%= text_field_tag(:search, params[:search]) %>
-    <%= submit_tag ("Search") %>
-    <% end %>
+    <div class= "welcome"> <i> NOZAMA </i> </div>
+
+    <div class= "nav-buttons">
+        <%= button_to "Profile", user_path(User.all[0].id), method: 'get'%>
+        <%= button_to "My Orders", orders_path, method: 'get' %>
+        <%= button_to "See All Items", items_path, method: 'get' %>
+        <!-- <%= button_to "Wishlists", orders_path, method: 'get' %> -->
+    </div>
+
+    <div class= "search">
+        <%= form_tag(items_path, method: :get) do %>
+        <%= text_field_tag(:search, params[:search]) %>
+        <%= submit_tag ("Search") %>
+        <% end %>
+    </div>
 </div>
 
