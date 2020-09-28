@@ -1,6 +1,18 @@
+<% if @user.errors %>
+  <ul>
+    <% @user.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
 
 <%= form_for @user do |f| %>
   <%= f.label :name, "Name:" %>
   <%= f.text_field :name %>
+  <br>
+  <%= f.label :password, "Password:" %>
+  <%= f.password_field :password %>
+  <br>
   <%= f.submit button_text %>
 <% end %>

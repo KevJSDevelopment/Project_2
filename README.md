@@ -23,3 +23,9 @@ Things you may want to cover:
 
 * ...
 # Project_2
+
+
+To Do:
+- Login button should go away after user is logged in
+- add logout button feature
+- user should be logged in when created

@@ -1,6 +1,7 @@
 <h1> Products </h1>
 <div>
   <ul class="items">
+  <% if @items != [] %>
     <% @categories.each do |category| %>
       <br>
       <div class="category"> <%= category.capitalize %> </div>
@@ -12,5 +13,8 @@
       </li>
       <% end %>
     <%end%>
+    <%else%>
+      <%= "No items found. Try something else." %>
+  <%end%>
   </ul>
 </div>

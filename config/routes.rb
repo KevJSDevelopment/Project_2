@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   get "/about", to: "static#about"
   get "/contact", to: "static#contact"
 
+  get "/login", to: "users#login", as: "login"
+  post "/login", to: "users#process_login"
+  get "/logout", to: "users#logout", as: "logout"
+  
 end

@@ -3,7 +3,7 @@ class WishlistsController < ApplicationController
   before_action :find_wishlist, only: [:show, :edit, :update, :destroy]
 
   def index
-    @wishlists = Wishlist.where(user_id: User.all[0])
+    @wishlists = Wishlist.where(user_id: session[:user_id])
   end
 
   def show
@@ -14,7 +14,7 @@ class WishlistsController < ApplicationController
   end
   
   def create
-    @wishlist = Wishlist.new(wishlist_params, user_id: User.all[0])
+    @wishlist = Wishlist.new(name: wishlist_params[:name], user_id: session[:user_id])
     if @wishlist.save
       redirect_to wishlist_path(@wishlist.id)
     else

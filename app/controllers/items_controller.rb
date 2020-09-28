@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.search(params[:search])
+    @items = Item.search(params[:search], params[:category])
     @categories = []
     @items.each do |item|
       if !@categories.include?(item.category)
