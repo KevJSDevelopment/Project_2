@@ -2,12 +2,12 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.search(params[:search], params[:category])
-    @categories = []
-    @items.each do |item|
-      if !@categories.include?(item.category)
-          @categories << item.category
-      end
+    if params[:category] != nil
+      @categories = Category.where(id: params[:category])
+    else
+      @categories = Category.all
     end
+
   end
 
   def show

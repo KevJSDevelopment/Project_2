@@ -1,20 +1,12 @@
 <h1> Products </h1>
-<div>
-  <ul class="items">
-  <% if @items != [] %>
-    <% @categories.each do |category| %>
-      <br>
-      <div class="category"> <%= category.capitalize %> </div>
-      <% @items.each do |item| %>
-        <%if item.category == category%>
-          <br>
-          <li> <%= link_to item.name, item_path(item) %> <%= number_to_currency(item.price) %> </li>
+
+
+
+<ul>
+      <% @categories.each do |category|%>
+        <h3> <%= category.name.titleize %></h3>
+          <% @items.each do |item|%>
+            <li><%= link_to item.name, item_path(item.id) %></li>
         <%end%>
-      </li>
-      <% end %>
     <%end%>
-    <%else%>
-      <%= "No items found. Try something else." %>
-  <%end%>
-  </ul>
-</div>
+</ul>
