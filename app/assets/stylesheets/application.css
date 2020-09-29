@@ -18,23 +18,23 @@
  .header {
    background-color: #008060;
    color: white;
-   text-align:center;
+   text-align: right;
    font-family: Times, Times New Roman, serif ;
-   padding: 0px;
-   border: 0px;
-   margin: 0px;
-   vertical-align: baseline;
+   /* vertical-align: baseline; */
    border-radius: 15px;
   }
 
   .search {
     display: inline-flex;
-
+    text-align: right;
+    margin-right: 5px;
  }
 
  .nav-buttons {
   display: inline-flex;
-  padding: 20px;
+  padding: 12px;
+  /* width: 45%;
+  flex: 2; */
  }
 
  .welcome {
@@ -53,13 +53,13 @@ a:link {
 }
 
 /* visited link */
-a:visited {
+.welcome a:visited {
   color: #FBF7ED;
   text-decoration: none;
 }
 
 /* mouse over link */
-a:hover {
+.welcome a:hover {
   color: #FBF7ED;
   text-decoration: none;
   cursor: pointer;
@@ -77,4 +77,16 @@ a:active {
   padding: 2px;
   background-color: red;
   display: table;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  background-color: #008060;
+  display: inline-flex;
+}
+
+.about {
+  text-align: center;
+  font-size: small;
 }

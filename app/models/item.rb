@@ -6,7 +6,7 @@ class Item < ApplicationRecord
     belongs_to :category
 
     def self.search(search, category) 
-        if category != nil
+        if category != nil && category != ""
             category_items = Item.where(category_id: category)
             if search != "" && search != nil
                 items = category_items.where("name LIKE '%#{search}%'")

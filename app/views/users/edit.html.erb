@@ -1,3 +1,16 @@
-<h2> Edit Username </h2>
+<h2> Edit Profile </h2>
 
-<%= render partial: "user_form", locals: {button_text: "Edit Username"} %>
+<% if @user.errors %>
+  <ul>
+    <% @user.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <%= f.label :name, "Name:" %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.submit "Update Account" %>
+<% end %>

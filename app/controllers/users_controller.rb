@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     end
 
     def logout
-        session.clear 
+        session.clear
         flash[:message] = "You have been logged out"
         redirect_to login_path
     end
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
 
     def destroy
         @user.destroy
-        redirect_to bye_path
+        redirect_to logout_path
     end
 
     private
