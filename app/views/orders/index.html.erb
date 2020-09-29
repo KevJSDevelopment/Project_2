@@ -7,7 +7,7 @@
             Order Number: <%= order.id %>
         <br>Status: <%= order.status%>
         <br>Total Order Price: <%= number_to_currency(order.total_price)%> 
-        <br><%= button_to "View Order", order_path(order.id), method: 'get'%>
+        <br><%= button_to "View Order", order_path(order.id), method: 'get'%> 
         </li>
     <%end%>
 </ul>

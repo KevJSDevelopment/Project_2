@@ -8,6 +8,12 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
+  def purchase
+    @order = Order.find_by(status: "Pending")
+    @order.update(status: "Purchased") 
+    redirect_to order_path(@order.id)
+  end
+
   # def add_or_create
   #   ##customized create
   #   # byebug

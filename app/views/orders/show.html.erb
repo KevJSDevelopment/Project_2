@@ -9,4 +9,7 @@
 
 </ul>
 
-<div> Order Total: <%= number_to_currency(@order.total_price) %> </div>
+<div> 
+    Order Total: <%= number_to_currency(@order.total_price) %>            
+    <%= button_to "Complete Purchase", purchase_path, data: {:confirm => "Are you sure you want to complete your purchase?"} %>
+</div>
