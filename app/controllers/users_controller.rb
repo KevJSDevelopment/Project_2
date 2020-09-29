@@ -53,7 +53,12 @@ class UsersController < ApplicationController
 
     def destroy
         @user.destroy
-        redirect_to logout_path
+        redirect_to user_deleted_path
+    end
+
+    def user_deleted
+        session.clear
+        render :user_deleted
     end
 
     private
