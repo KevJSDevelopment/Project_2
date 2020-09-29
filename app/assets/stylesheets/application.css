@@ -40,7 +40,7 @@
  .welcome {
   font-size: 40px;
   text-align: center;
-  padding: 0px;
+  padding: 5px;
   border: 0px;
   margin: 0px;
  }
@@ -71,7 +71,13 @@ a:active {
   text-decoration: none;
 }
 
+div.purchased {
+  color: green;
+}
 
+div.pending {
+  color: blue;
+}
 
 .field_with_errors {
   padding: 2px;
@@ -129,4 +135,10 @@ li::before{
   -webkit-column-rule: 1px single grey; /* Chrome/Opera, Safari */
   -moz-column-rule: 1px single grey; /* Mozilla Firefox */
   column-rule: 1px single grey;
-  } 
+} 
+
+.profile {
+  float: right;
+  margin-left: 5px;
+  display: flex;
+}

@@ -14,6 +14,12 @@ class OrdersController < ApplicationController
     redirect_to order_path(@order.id)
   end
 
+  def destroy
+    @order = Order.find(params[:id])
+    @order.destroy
+    redirect_to orders_path
+  end
+
   # def add_or_create
   #   ##customized create
   #   # byebug

@@ -1,15 +1,22 @@
 <h1> Order Number: <%= @order.id%> </h1>
 
-<div> Status: <%= @order.status%> </div>
+<%if @order.status == "Purchased"%>
+    <div class="purchased"> Status: <%= @order.status%> </div>
+<%else%>
+    <div class="pending"> Status: <%= @order.status%> </div>
+<%end%>
 
 <ul>
     <% @order.items.each do |item| %>
-        <li> Item: <%= link_to item.name, item_path(item.id) %> Price: <%= number_to_currency(item.price) %> </li>
+        <li> Item: <%= link_to item.name, item_path(item.id) %> Price: <%= number_to_currency(item.price) %> <%= button_to "Remove", remove_item_path(item.id), method: "delete" %></li>
     <%end%>
 
 </ul>
 
 <div> 
-    Order Total: <%= number_to_currency(@order.total_price) %>            
-    <%= button_to "Complete Purchase", purchase_path, data: {:confirm => "Are you sure you want to complete your purchase?"} %>
+    Order Total: <%= number_to_currency(@order.total_price) %> 
+    <%if @order.status == "Pending"%>           
+        <%= button_to "Complete Purchase", purchase_path, data: {:confirm => "Are you sure you want to complete your purchase?"} %>
+        <%= button_to "Delete Order", order_path(@order.id), method: "delete", data: {:confirm => "Are you sure you want to delete your order?"} %>
+    <%end%>
 </div>

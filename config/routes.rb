@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :wishlists, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   # resources :order_items, only: []
   resources :items, only: [:index, :show]
-  resources :orders, only: [:index, :show]
+  resources :orders, only: [:index, :show, :destroy]
   resources :users, only: [:new, :create, :destroy, :edit, :update, :show]
 
   post "/add_order/:id", to: "order_items#add_or_create", as: "add_order"
@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get "/contact", to: "static#contact"
 
   post "/purchase", to: "orders#purchase", as: "purchase"
+
+  delete "/remove_item/:id", to: "order_items#remove_item", as: "remove_item"
+  
   get "/login", to: "users#login", as: "login"
   post "/login", to: "users#process_login"
   get "/logout", to: "users#logout", as: "logout"

@@ -3,10 +3,13 @@
 <ul>
     <% @orders.each do |order| %>
         <br>
-        <li> 
-            Order Number: <%= order.id %>
-        <br>Status: <%= order.status%>
-        <br>Total Order Price: <%= number_to_currency(order.total_price)%> 
+        <li> Order Number: <%= order.id %>
+        <br><%if order.status == "Purchased"%>
+                <div class="purchased"> Status: <%= order.status%> </div>
+            <%else%>
+                <div class="pending"> Status: <%= order.status%> </div>
+            <%end%>
+        Total Order Price: <%= number_to_currency(order.total_price)%> 
         <br><%= button_to "View Order", order_path(order.id), method: 'get'%> 
         </li>
     <%end%>

@@ -5,7 +5,11 @@
       <h3> <%= category.name.titleize %></h3>
         <% @items.each do |item|%>
           <%if item.category_id == category.id%>
-          <li><%= link_to item.name, item_path(item.id) %> <%= number_to_currency(item.price) %></li>
+            <li>
+              <%= link_to item.name, item_path(item.id) %> 
+              <%= number_to_currency(item.price) %> 
+              <%= link_to "Add Item", add_order_path(item.id), method: "post" %>
+            </li>
           <%end%>
       <%end%>
     <%end%>
@@ -16,7 +20,11 @@
     <h3> <%= category.name.titleize %></h3>
       <% @items.each do |item|%>
         <%if item.category_id == category.id%>
-        <li><%= link_to item.name, item_path(item.id) %> Price: <%= item.price %> </li>
+          <li class="">
+            <%= link_to item.name, item_path(item.id) %> 
+            <%= number_to_currency(item.price) %> 
+            <%= link_to "Add Item", add_order_path(item.id), method: "post" %>
+          </li>
         <%end%>
       <%end%>
     <%end%>

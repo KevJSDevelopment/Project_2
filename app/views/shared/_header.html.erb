@@ -1,21 +1,21 @@
 <div class= "header">
 
 
-    <div class= "welcome">  <%= link_to "NOZAMA", greetings_path %> </div>
-
+    <div class= "welcome">  <%= link_to "NOZAMA", greetings_path %>
+        <%if session[:user_id]%>
+                <%= button_to "Logout", logout_path, method: 'get', form_class: "profile" %> 
+                <%= button_to "Profile", user_path(session[:user_id]), method: 'get', form_class: "profile"%>
+        <%else%>
+                <%= button_to "Create Account", new_user_path, method: 'get', form_class: "profile" %>
+                <%= button_to "Login", login_path, method: 'get', form_class: "profile" %>
+        <%end%>
+    </div>
     <div class= "nav-buttons">
-        <%= button_to "See All Items", items_path, method: 'get' %>
-
+        <%= button_to "See All Items", items_path, method: 'get', form_class: "navbar" %>
         <%  if session[:user_id]%>
-                <%= button_to "Profile", user_path(session[:user_id]), method: 'get'%>
-
-                <%= button_to "My Orders", orders_path, method: 'get' %>
-                <%= button_to "Logout", logout_path, method: 'get' %>
-            <%else%>
-                <%= button_to "Create Account", new_user_path, method: 'get' %>
-                <%= button_to "Login", login_path, method: 'get' %>
-            <% end %>
-        <!-- <%= button_to "Wishlists", orders_path, method: 'get' %> -->
+            <%= button_to "My Orders", orders_path, method: 'get', form_class: "navbar"%>
+        <% end %>
+        <!-- <%= button_to "Wishlists", orders_path, method: 'get', form_class: "navbar" %> -->
     </div>
 
     <div class= "search">
@@ -27,4 +27,3 @@
     </div>
 
 </div>
-
