@@ -1,12 +1,24 @@
 <h1> Products </h1>
-
-
-
-<ul>
-      <% @categories.each do |category|%>
-        <h3> <%= category.name.titleize %></h3>
-          <% @items.each do |item|%>
-            <li><%= link_to item.name, item_path(item.id) %></li>
-        <%end%>
+<%if @categories.count > 1%>
+  <ul class="All_Categories">
+    <% @categories.each do |category|%>
+      <h3> <%= category.name.titleize %></h3>
+        <% @items.each do |item|%>
+          <%if item.category_id == category.id%>
+          <li><%= link_to item.name, item_path(item.id) %></li>
+          <%end%>
+      <%end%>
     <%end%>
-</ul>
+  </ul>
+<%else%>
+  <ul class="One_Category">
+    <% @categories.each do |category|%>
+    <h3> <%= category.name.titleize %></h3>
+      <% @items.each do |item|%>
+        <%if item.category_id == category.id%>
+        <li><%= link_to item.name, item_path(item.id) %></li>
+        <%end%>
+      <%end%>
+    <%end%>
+  </ul>
+<%end%>

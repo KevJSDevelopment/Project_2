@@ -79,14 +79,54 @@ a:active {
   display: table;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
+.footer_container {
   background-color: #008060;
-  display: inline-flex;
+  position: absolute;
+  bottom: 0px;
+  width: 99%;
+  text-align: center;
+  color: #FBF7ED;
+  border-radius: 15px;
 }
 
-.about {
-  text-align: center;
-  font-size: small;
+.footer_container a:visited {
+  color: #FBF7ED;
+  text-decoration: none;
 }
+
+.about{
+  display: inline;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.contact{
+  display: inline;
+
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+li{ 
+  list-style: none; 
+} 
+
+li::before{ 
+  content: "\00BB"; 
+  margin: 5px;
+} 
+
+ ul.All_Categories {
+  -webkit-column-count: 3;  /* Chrome/Opera, Safari */
+  -moz-column-count: 3; /* Mozilla Firefox */
+  column-count: 3;
+  
+  /* Properties below are optional: */
+  -webkit-column-gap: 50px; /* Chrome/Opera, Safari */
+  -moz-column-gap: 50px; /* Mozilla Firefox */
+  column-gap: 50px;
+  
+  -webkit-column-rule: 1px single grey; /* Chrome/Opera, Safari */
+  -moz-column-rule: 1px single grey; /* Mozilla Firefox */
+  column-rule: 1px single grey;
+  } 
