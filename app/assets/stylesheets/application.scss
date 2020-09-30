@@ -13,56 +13,24 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
 
+ body{
+   background-color: rgb(230, 230, 230);
+ }
 
- .header {
-   background-color: #008060;
-   color: white;
-   text-align: right;
-   font-family: Times, Times New Roman, serif ;
-   /* vertical-align: baseline; */
-   border-radius: 15px;
-  }
-
-  .search {
+ div.info {
+   display: inline-flex;
+ }
+.search {
     display: inline-flex;
     text-align: right;
-    margin-right: 5px;
+    margin: 7px;
  }
-
- .nav-buttons {
-  display: inline-flex;
-  padding: 12px;
-  /* width: 45%;
-  flex: 2; */
- }
-
- .welcome {
-  font-size: 40px;
-  text-align: center;
-  padding: 5px;
-  border: 0px;
-  margin: 0px;
- }
-
-
 
 a:link {
   color: rgb(30, 37, 29);
   text-decoration: none;
-}
-
-/* visited link */
-.welcome a:visited {
-  color: #FBF7ED;
-  text-decoration: none;
-}
-
-/* mouse over link */
-.welcome a:hover {
-  color: #FBF7ED;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 /* selected link */
@@ -138,7 +106,20 @@ li::before{
 } 
 
 .profile {
-  float: right;
-  margin-left: 5px;
-  display: flex;
+  margin-top: 10px;
+}
+
+.login_form {
+  display: block;
+  border: 2px solid #008060;
+  padding: 2rem;
+  text-align: center;
+  width: 500px;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 25px;
+}
+
+.form-group {
+
 }

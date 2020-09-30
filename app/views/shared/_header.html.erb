@@ -1,29 +1,29 @@
-<div class= "header">
-
-
-    <div class= "welcome">  <%= link_to "NOZAMA", greetings_path %>
+<nav class="navbar navbar-light" style="background-color: #1F2F39;">
+    <div class="info">
+        <a class="btn btn-dark" href="/" style="font-size: 28px" role="button"  ><i>Nozama</i></a>
+        <div class="profile" style="padding-left: 10px;">
+            <%if session[:user_id]%>
+                <a class="btn btn-outline-info" href="/users/:id" role="button">Profile</a>
+                <a class="btn btn-outline-secondary" href="/logout" role="button">Logout</a>
+            <%else%>
+                <a class="btn btn-outline-info" href="/login" role="button">Login</a>
+                <a class="btn btn-outline-success" href="/users/new" role="button">Sign Up</a>
+            <%end%>
+        </div>
+    </div>
+  <form class="form-inline">
+    <div style="padding-left: 10px;">
+        <a class="btn btn-outline-light" href="/items" role="button"> Shop </a>
         <%if session[:user_id]%>
-                <%= button_to "Logout", logout_path, method: 'get', form_class: "profile" %> 
-                <%= button_to "Profile", user_path(session[:user_id]), method: 'get', form_class: "profile"%>
-        <%else%>
-                <%= button_to "Create Account", new_user_path, method: 'get', form_class: "profile" %>
-                <%= button_to "Login", login_path, method: 'get', form_class: "profile" %>
+            <a class="btn btn-outline-light" href="/orders" role="button">My Orders</a>
         <%end%>
+        <div class= "search">
+            <%= form_tag(items_path, method: :get) do %>
+            <%= select_tag :category, options_from_collection_for_select(Category.all, "id", "name"),  include_blank: "All Categories" %>
+            <%= text_field_tag(:search, params[:search]) %>
+            <%= submit_tag ("Search") %>
+            <% end %>
+        </div>
     </div>
-    <div class= "nav-buttons">
-        <%= button_to "See All Items", items_path, method: 'get', form_class: "navbar" %>
-        <%  if session[:user_id]%>
-            <%= button_to "My Orders", orders_path, method: 'get', form_class: "navbar"%>
-        <% end %>
-        <!-- <%= button_to "Wishlists", orders_path, method: 'get', form_class: "navbar" %> -->
-    </div>
-
-    <div class= "search">
-        <%= form_tag(items_path, method: :get) do %>
-        <%= select_tag :category, options_from_collection_for_select(Category.all, "id", "name"),  include_blank: "All Categories" %>
-        <%= text_field_tag(:search, params[:search]) %>
-        <%= submit_tag ("Search") %>
-        <% end %>
-    </div>
-
-</div>
+  </form>
+</nav>

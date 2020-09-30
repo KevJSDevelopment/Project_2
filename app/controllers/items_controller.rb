@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
     else
       @categories = Category.all
     end
+    render :index
   end
 
   def show

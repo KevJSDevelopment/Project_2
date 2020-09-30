@@ -31,16 +31,3 @@ To Do:
 - user should be logged in when created
 
 
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="/">Our Logo</a>
-  <form class="form-inline">
-    <a class="btn btn-outline-primary" href="/login" role="button">
-    Login
-    </a>
-    <div style="padding-left: 10px;">
-      <a class="btn btn-outline-success" href="/users/new" role="button">
-      Sign Up
-      </a>
-    </div>
-  </form>
-</nav>
