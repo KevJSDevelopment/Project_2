@@ -2,4 +2,11 @@
 
 <p> $<%= @item.price %> </p>
 
-<%= button_to "Add Item to Order", add_order_path(@item.id), method: 'post' %>
+<%= button_to "Add to Order", add_order_path(@item.id), method: 'post' %>
+
+<%= form_tag add_wishlist_path(@item.id) do %>
+<%= select_tag :wishlist, options_from_collection_for_select(Wishlist.all, "id", "name")%>
+<%= submit_tag ("Submit") %>
+<%end%>
+
+

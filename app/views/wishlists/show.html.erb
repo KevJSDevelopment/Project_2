@@ -2,6 +2,10 @@
 
 <ul>
     <% @wishlist.items.each do |item| %>
-    <li><%= link_to item.name, item_path(item) %> </li>
+    <li><%= link_to item.name, item_path(item)%> <%=button_to "Add Item to Cart", add_order_path(item.id), method: "post"%> </li> 
     <% end %>
 </ul>
+
+<%= button_to "Delete Wishlist", wishlist_path(@wishlist.id), method: "delete", 
+                    data: {:confirm => "Are you sure you want to delete this list?"}%>
+

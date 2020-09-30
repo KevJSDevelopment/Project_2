@@ -1,32 +1,21 @@
 <h1> Products </h1>
-<%if @categories.count > 1%>
-  <ul class="All_Categories">
+
+  <ul <% if @one_category %>
+            class="One_Category"
+          <%else%>
+            class="All_Categories"
+          <%end%>>
     <% @categories.each do |category|%>
       <h3> <%= category.name.titleize %></h3>
         <% @items.each do |item|%>
           <%if item.category_id == category.id%>
             <li>
-              <%= link_to item.name, item_path(item.id) %> 
+              <%= link_to item.name, item_path(item.id), class:"shop" %> 
               <%= number_to_currency(item.price) %> 
-              <%= link_to "Add Item", add_order_path(item.id), method: "post"%>
+              <%= link_to "Add Item", add_order_path(item.id), method: "post", class:"shop"%>
             </li>
           <%end%>
       <%end%>
     <%end%>
   </ul>
-<%else%>
-  <ul class="One_Category">
-    <% @categories.each do |category|%>
-    <h3> <%= category.name.titleize %></h3>
-      <% @items.each do |item|%>
-        <%if item.category_id == category.id%>
-          <li class="">
-            <%= link_to item.name, item_path(item.id) %> 
-            <%= number_to_currency(item.price) %> 
-            <%= link_to "Add Item", add_order_path(item.id), method: "post"%>
-          </li>
-        <%end%>
-      <%end%>
-    <%end%>
-  </ul>
-<%end%>
+
