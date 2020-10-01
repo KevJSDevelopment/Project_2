@@ -1,3 +1,29 @@
 // Place all the styles related to the Items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+li {
+  width: auto;
+  position: relative;
+  margin: 5px;
+}
+
+form.button_to {
+  margin-left: 3px;
+  display: inline;
+  text-align: right;
+}
+
+
+
+
+// input.shop {
+//   display: block;
+//   width: 90%;
+//   border: none;
+//   background-color: #4CAF50;
+//   padding: 10px 10px;
+//   font-size: 10px;
+//   cursor: pointer;
+//   text-align: center;
+// }

@@ -8,10 +8,10 @@ class WishlistItemsController < ApplicationController
     end
 
     def remove_item
-      item = Item.find(params[:id])
-      order = Order.find_by(status: "Pending")
-      order_item = OrderItem.find_by(item_id: item.id, order_id: order.id)
-      order_item.destroy
-      redirect_to order_path(order.id)
+      item = Item.find(params[:item])
+      wishlist = Wishlist.find(params[:id])
+      wishlist_item = WishlistItem.find_by(item_id: item.id, wishlist_id: wishlist.id)
+      wishlist_item.destroy
+      redirect_to wishlist_path(wishlist.id)
   end
 end

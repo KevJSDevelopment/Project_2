@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post "/purchase", to: "orders#purchase", as: "purchase"
 
   delete "/remove_item/:id", to: "order_items#remove_item", as: "remove_item"
+  delete "/remove_item_wishlist/:id", to: "wishlist_items#remove_item", as: "remove_item_from_wishlist"
   
   get "/login", to: "users#login", as: "login"
   post "/login", to: "users#process_login"

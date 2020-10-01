@@ -6,7 +6,7 @@
 
 <%= form_tag add_wishlist_path(@item.id) do %>
 <%= select_tag :wishlist, options_from_collection_for_select(Wishlist.all, "id", "name")%>
-<%= submit_tag ("Submit") %>
+<%= submit_tag ("Add to Wishlist") %>
 <%end%>
 
 
