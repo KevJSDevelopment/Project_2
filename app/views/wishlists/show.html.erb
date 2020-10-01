@@ -1,15 +1,25 @@
-<h2><%= @wishlist.name %></h2>
+<% if flash[:message] %>
+ <center> 
+    <div class="alert alert-danger"> 
+        <%= flash[:message]%>
+    </div> 
+</center>
+<%end%>
+<div class="form", id="wishlist-form">
+    <h2 class= "wishlist-title"><%= @wishlist.name.titleize %></h2>
 
-<ul>
-    <% @wishlist.items.each do |item| %>
-    <li><%= link_to item.name, item_path(item)%> 
-    <%=button_to "Add Item to Cart", add_order_path(item.id), method: "post"%> 
-    <%= button_to "Remove Item", remove_item_from_wishlist_path(@wishlist.id), method: "delete", params:{item: item.id}%> </li>
-    <% end %>
-</ul>
+    <ul class="wishlist-ul">
+        <% @wishlist.items.each do |item| %>
+            <li class="items-on-wishlist">
+                <%= link_to item.name, item_path(item)%> 
+                <%=button_to "Add to order", add_order_path(item.id), method: "post", class: "btn btn-outline-success btn-sm"%> 
+                <%= button_to "Remove", remove_item_from_wishlist_path(@wishlist.id), method: "delete", params:{item: item.id}, class: "btn btn-outline-danger btn-sm"%> 
+            </li>
+        <% end %>
+    </ul>
 
-<%= %>
+    <%= %>
 
-<%= button_to "Delete Wishlist", wishlist_path(@wishlist.id), method: "delete", 
-                    data: {:confirm => "Are you sure you want to delete this list?"}%>
-
+    <%= button_to "Delete Wishlist", wishlist_path(@wishlist.id), method: "delete", 
+                        data: {:confirm => "Are you sure you want to delete this list?"}, class: "btn btn-outline-secondary", id: "delete-wishlist"%>
+</div>

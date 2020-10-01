@@ -1,6 +1,15 @@
-<%= flash.now[:no_user] %>
-<%= flash[:deleted]%>
-<%= flash[:message]%>
+<center> 
+<% if flash.now[:no_user] %>
+  <div class="alert alert-danger"> 
+    <%= flash.now[:no_user] %> 
+  </div>
+<%end%>
+<% if flash[:message] %>
+  <div class="alert alert-primary"> 
+    <%= flash[:message]%>
+  </div>
+<%end%>
+</center>
 
 <%= form_tag(login_path, {class: "form"})do %>
   <div class="form-group">

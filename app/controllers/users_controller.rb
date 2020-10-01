@@ -59,6 +59,7 @@ class UsersController < ApplicationController
 
     def user_deleted
         session.clear
+        flash[:message] = "You successfully deleted your account"
         render :user_deleted
     end
 

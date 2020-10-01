@@ -1,16 +1,16 @@
 <% if @wishlist.errors %>
-  <ul>
-    <% @wishlist.errors.full_messages.each do |error| %>
-    <li><%= error %></li>
-    <% end %>
-  </ul>
+  <% @wishlist.errors.full_messages.each do |error| %>
+    <div class="alert alert-danger">
+      <center> <%= error %> </center>
+    </div>
   <% end %>
-
-
-<%= form_for @wishlist do |f| %>
-  <%= f.label :name, "Name:" %>
-  <%= f.text_field :name %>
-  <br>
-
-  <%= f.submit button_text %>
 <% end %>
+
+<div class="form">
+  <%= form_for @wishlist do |f| %>
+    <%= f.label :name, "Create New List:" %>
+    <%= f.text_field :name , class: 'form-control'%>
+    <br>
+    <%= f.submit button_text, class: "btn btn-outline-success"%>
+  <% end %>
+</div>

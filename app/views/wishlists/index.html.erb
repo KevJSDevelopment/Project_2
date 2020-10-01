@@ -1,19 +1,25 @@
-<h2> My Wishlists </h2>
+<% if flash[:message] %>
+ <center> 
+    <div class="alert alert-primary"> 
+        <%= flash[:message]%>
+    </div> 
+</center>
+<%end%>
+<div class="form">
+    <h2> My Wishlists </h2>
 
-<ul>
-<% @wishlists.each do |wishlist|%>
-<br>
-<li><%= wishlist.name %>
+    <% @wishlists.each do |wishlist|%>
     <br>
-    <%= link_to "View", wishlist_path(wishlist.id) %>/ 
-    <%= link_to "Edit", edit_wishlist_path(wishlist.id) %>/
-    <%= link_to "Delete", wishlist_path(wishlist.id),
-                          method: "delete",
-                          data: {:confirm => "Are you sure you want to delete this wishlist?"} %>
-</li>
+    <div><%= wishlist.name.titleize %>
+        <br>
+        <%= link_to "View", wishlist_path(wishlist.id) %>/ 
+        <%= link_to "Edit", edit_wishlist_path(wishlist.id) %>/
+        <%= link_to "Delete", wishlist_path(wishlist.id),
+                            method: "delete",
+                            data: {:confirm => "Are you sure you want to delete this wishlist?"} %>
+    </div>
 
-<% end %>
-
-</ul>
-
-<%= button_to "Create New Wishlist", new_wishlist_path, method: "get" %>
+    <% end %>
+    <br>
+    <%= button_to "Create New Wishlist", new_wishlist_path, method: "get", class: "btn btn-outline-success"%>
+</div>

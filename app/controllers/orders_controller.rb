@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.where(user_id: session[:user_id])
+    @current_order = Order.find_by(status: "Pending", user_id: session[:user_id])
   end
 
   def show
@@ -9,7 +10,7 @@ class OrdersController < ApplicationController
   end
 
   def purchase
-    @order = Order.find_by(status: "Pending")
+    @order = Order.find_by(status: "Pending", user_id: session[:user_id])
     @order.update(status: "Purchased") 
     redirect_to order_path(@order.id)
   end

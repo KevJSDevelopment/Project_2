@@ -10,4 +10,17 @@ class Order < ApplicationRecord
         end
         sum
     end
+
+    def item_quantity
+        hash = {}
+        current_order = Order.find_by(status: "Pending")
+        current_order.items.each do |item| 
+            if hash[item.name] == nil
+                hash[item.name] = 1
+            else
+                hash[item.name] += 1
+            end
+        end
+        hash
+    end
 end

@@ -1,14 +1,37 @@
-
-<h1 class="order_history"> Order History </h1>
-<% @orders.each do |order| %>
-    <%if order.status == "Purchased"%>
-        <ul class="order_history">
-            <li class="form"> Order Number: <%= order.id %>
-                <div class="purchased"> Status: <%= order.status%> </div>
-                Total Order Price: <%= number_to_currency(order.total_price)%> 
-                <br>
-                <%= button_to "View Order", order_path(order.id), method: 'get', class: "btn btn-outline-success" %> 
-            </li>
-        </ul>
-    <% end %>
-<%end %>
+<div>
+<div class="my_orders">
+    <h1 class="order_history"> Order History </h1>
+    <ul class="order_history">
+        <% @orders.each do |order| %>
+            <%if order.status == "Purchased"%>
+                <li class="form"> Order Number: <%= order.id %>
+                    <div class="purchased"> Status: <%= order.status%> </div>
+                    Total Order Price: <%= number_to_currency(order.total_price)%> 
+                    <br>
+                    <%= button_to "View Order", order_path(order.id), method: 'get', class: "btn btn-outline-success" %> 
+                </li>
+            <% end %>
+        <%end %>
+    </ul>
+</div>
+<% if @current_order %>
+    <div class="my_order">
+        <h1 class="current_order"> Current Order </h1>
+        <div class="form", id="order">
+            <div class="pending"> Status: <%= @current_order.status %> </div>
+            <div class="order_number"> Order Number: <%= @current_order.id %> </div>
+            <br>
+            <div class="items_order"> 
+                Items:
+                <ul class= "item_hash">
+                    <%@current_order.item_quantity.each do |item_name, count| %>
+                        <li><%= item_name %> - Quantity: <%= count %> </li>
+                    <%end%>
+                </ul>
+            </div>
+            <div class="price"> Total: <%= number_to_currency(@current_order.total_price) %> </div>
+            <%= button_to "View Order", order_path(@current_order.id), method: "get", class: "btn btn-outline-success", id: "view_pending_order"%>
+        </div>
+    </div>
+<% end %>
+</div>

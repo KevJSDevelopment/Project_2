@@ -54,12 +54,7 @@ div.purchased {
 
 div.pending {
   color: blue;
-}
-
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+  text-align: right;
 }
 
 .footer_container {
@@ -134,8 +129,117 @@ li.form {
   text-align: center;
   padding: 15px;
   width: 300px;
+  background-color: rgb(230, 230, 230);
 }
 
-ul.order_history {
- padding: 0%;
+// wishlist css
+.wishlist-ul {
+  padding: 0px;
 }
+.wishlist-title {
+  text-align: left;
+}
+
+.items-on-wishlist {
+  text-align: left;
+}
+
+#delete-wishlist {
+  float: right;
+}
+
+#wishlist-form {
+  width: 600px;
+}
+#select-wishlist {
+  width: 100%;
+}
+
+#new_wishlist.new_wishlist {
+  font-size: 18px;
+}
+#wishlist_name.form-control {
+  display: inline-block;
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.wishlist-form {
+  display: inline-flex;
+  margin-top: 15px;
+}
+
+// wishlist css end
+
+
+#item-form {
+  padding: 3rem;
+}
+
+
+// Order css
+ul.order_history {
+  padding: 0%;
+  margin: 5px;
+  margin-left: 15px;
+  padding: 15px;
+  width: 350px;
+  background-color: #2a3c47;
+  border: 2px solid rgb(230, 230, 230);
+  border-radius: 25px;
+}
+
+h1.order_history {
+  margin-top: 25px;
+  margin-left: 75px;
+}
+
+#add-order-button {
+  float: left;
+  margin-top: 15px;
+}
+
+h1.current_order {
+  margin-left: 110px;
+}
+div.my_order {
+  float: right;
+  width: 750px;
+  margin-top: 30px;
+}
+div.my_orders {
+  float: left;
+}
+
+div.order_number {
+  text-align: left;
+  font-size: large;
+  font-weight: bolder;
+}
+
+div#order.form {
+  padding-top: 5px;
+  padding: 10px;
+  text-align: right;
+  width: 450px;
+  margin: 15px;
+}
+
+div.items_order {
+  text-align: left;
+}
+
+ul.item_hash {
+  padding-left: 0px;
+  font-size: small;
+}
+
+div.price {
+  text-align: right;
+  font-weight: bold;
+}
+
+#view_pending_order {
+  text-align: right;
+}
+// end of order index page

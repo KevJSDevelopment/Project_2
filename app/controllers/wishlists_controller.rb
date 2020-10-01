@@ -35,6 +35,7 @@ class WishlistsController < ApplicationController
 
   def destroy
     @wishlist.destroy
+    flash[:message] = "Your wishlist has been deleted"
     redirect_to wishlists_path
   end
 

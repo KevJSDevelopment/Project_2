@@ -3,7 +3,7 @@ class WishlistItemsController < ApplicationController
     def add_to_wishlist 
       item = Item.find(params[:id])
       wishlist = Wishlist.find(params[:wishlist])
-      WishlistItem.create(item_id: item.id, wishlist_id: wishlist.id)
+      wishlist_item = WishlistItem.create(item_id: item.id, wishlist_id: wishlist.id)
       redirect_to wishlist_path(wishlist.id)
     end
 
