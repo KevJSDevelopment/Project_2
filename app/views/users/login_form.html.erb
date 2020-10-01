@@ -2,7 +2,7 @@
 <%= flash[:deleted]%>
 <%= flash[:message]%>
 
-<%= form_tag(login_path, {class: "login_form"})do %>
+<%= form_tag(login_path, {class: "form"})do %>
   <div class="form-group">
     <%= label_tag :name, "Username" %>
     <%= text_field_tag :name, nil, class: 'form-control', id: 'exampleInputEmail1', placeholder: 'Username'%>

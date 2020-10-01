@@ -1,9 +1,13 @@
-<h1> My Orders </h1>
 
-<ul>
+
+
+
+<h1 class="my_orders"> My Orders </h1>
+
+<ul class="my_orders">
     <% @orders.each do |order| %>
         <br>
-        <li> Order Number: <%= order.id %>
+        <li class="form"> Order Number: <%= order.id %>
         <br><%if order.status == "Purchased"%>
                 <div class="purchased"> Status: <%= order.status%> </div>
             <%else%>
