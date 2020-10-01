@@ -57,3 +57,5 @@ gem 'faker'
 
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+
+gem 'meme', '~> 0.3.0'

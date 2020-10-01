@@ -1,12 +1,15 @@
+<center>
 <h2> <%= @item.name %> </h2>
 
-<p> $<%= @item.price %> </p>
-
-<%= button_to "Add to Order", add_order_path(@item.id), method: 'post' %>
+<p> Price: <%= number_to_currency(@item.price) %> </p>
+<img src= <%= @item.image %>>
+<br>
+<%= button_to "Add to Order", add_order_path(@item.id), method: 'post', class:"btn btn-outline-success btn-sm" %>
 
 <%= form_tag add_wishlist_path(@item.id) do %>
 <%= select_tag :wishlist, options_from_collection_for_select(Wishlist.all, "id", "name")%>
-<%= submit_tag ("Add to Wishlist") %>
+<%= submit_tag ("Add to Wishlist") , class:"btn btn-outline-success btn-sm"%>
 <%end%>
+</center>
 
 
