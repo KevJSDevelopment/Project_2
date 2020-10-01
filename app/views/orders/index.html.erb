@@ -1,20 +1,14 @@
 
-
-
-
-<h1 class="my_orders"> My Orders </h1>
-
-<ul class="my_orders">
-    <% @orders.each do |order| %>
-        <br>
-        <li class="form"> Order Number: <%= order.id %>
-        <br><%if order.status == "Purchased"%>
+<h1 class="order_history"> Order History </h1>
+<% @orders.each do |order| %>
+    <%if order.status == "Purchased"%>
+        <ul class="order_history">
+            <li class="form"> Order Number: <%= order.id %>
                 <div class="purchased"> Status: <%= order.status%> </div>
-            <%else%>
-                <div class="pending"> Status: <%= order.status%> </div>
-            <%end%>
-        Total Order Price: <%= number_to_currency(order.total_price)%> 
-        <br><%= button_to "View Order", order_path(order.id), method: 'get'%> 
-        </li>
-    <%end%>
-</ul>
+                Total Order Price: <%= number_to_currency(order.total_price)%> 
+                <br>
+                <%= button_to "View Order", order_path(order.id), method: 'get', class: "btn btn-outline-success" %> 
+            </li>
+        </ul>
+    <% end %>
+<%end %>

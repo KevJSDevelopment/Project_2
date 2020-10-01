@@ -130,17 +130,12 @@ li::before{
 }
 
 li.form {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 5px;
   text-align: center;
+  padding: 15px;
+  width: 300px;
 }
 
-h1.my_orders {
-  text-align: center;
-  margin: auto;
-  margin-top: 10px;
-}
-
-ul.my_orders {
-  padding: 0%;
+ul.order_history {
+ padding: 0%;
 }
