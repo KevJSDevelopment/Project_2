@@ -15,6 +15,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    if session[:user_id]
+      @wishlists = Wishlist.where(user_id: session[:user_id])
+    end
   end
   
 end
