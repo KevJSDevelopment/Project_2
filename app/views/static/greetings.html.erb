@@ -1,3 +1,29 @@
-<center> <h2> TESTING. GREETING PAGE. </h2> </center>
+
 
 <footer> <%= render partial: 'shared/footer' %> </footer>
+
+<div class="homepage">
+
+<div class="form", id="featured-rec">
+<h2> Featured Items </h2>
+    <% i = 1 %>
+  <%@items_rec.each do |item|%>
+      <div class="featured"> <%= link_to image_tag(item.image, size: "140x120", alt:"img#{i}"), item_path(item.id) %> </div>
+    <% i += 1 %>
+  <%end%>
+</div>
+
+
+<div class="form", id="homepage-rec">
+<h2> Deals of the Day </h2>
+    <% i = 1 %>
+  <%@bestdeals.each do |item|%>
+    <div class="best-deals">
+      <%= link_to image_tag(item.image, size: "140x120", alt:"img#{i}"), item_path(item.id) %>
+      <div class="deal-price"><%= number_to_currency(item.price) %></div>
+    </div>
+    <% i += 1 %>
+  <%end%>
+</div>
+
+</div>
