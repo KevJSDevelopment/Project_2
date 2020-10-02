@@ -1,23 +1,37 @@
+<div class="form", id="order-form">
+
 <h1> Order Number: <%= @order.id%> </h1>
 
 <%if @order.status == "Purchased"%>
     <div class="purchased"> Status: <%= @order.status%> </div>
 <%else%>
-    <div class="pending"> Status: <%= @order.status%> </div>
+    <div class="pending", id="pending-order"> Status: <%= @order.status%> </div>
 <%end%>
 
-<ul>
+<ul class="order-ul">
     <% @order.items.each do |item| %>
-        <li> Item: <%= link_to item.name, item_path(item.id) %> Price: <%= number_to_currency(item.price) %> <%= button_to "Remove", remove_item_path(item.id), method: "delete" %></li>
+        <li class="order-item-list"> Item: <%= link_to item.name, item_path(item.id) %> 
+        Price: <%= number_to_currency(item.price) %> 
+        <%if @order.status == "Pending"%>
+            <%= button_to "Remove", remove_item_path(item.id), method: "delete", class: "btn btn-outline-danger btn-sm" %></li>
+        <% end %>
     <%end%>
 
 </ul>
 
+
+
 <div> 
     Order Total: <%= number_to_currency(@order.total_price) %> 
     <%if @order.status == "Pending"%>      
-        <%= button_to "Continue Shopping", items_path, method: "get" %>     
-        <%= button_to "Complete Purchase", purchase_path, data: {:confirm => "Are you sure you want to complete your purchase?"} %>
-        <%= button_to "Delete Order", order_path(@order.id), method: "delete", data: {:confirm => "Are you sure you want to delete your order?"} %>
+    <br>
+    <br>
+        <%= button_to "Continue Shopping", items_path, method: "get", class: "btn btn-outline-success btn-sm" %>     
+        <%= button_to "Complete Purchase", purchase_path, data: {:confirm => "Are you sure you want to complete your purchase?"}, class: "btn btn-outline-success btn-sm" %>
+        <%= button_to "Delete Order", order_path(@order.id), method: "delete", data: {:confirm => "Are you sure you want to delete your order?"}, class: "btn btn-outline-danger btn-sm"%>
     <%end%>
 </div>
+ <br>
+    <%= button_to "Back to Orders", orders_path, method: "get", class: "btn btn-outline-secondary btn-sm", id: "back-to-orders" %>
+
+    </div>

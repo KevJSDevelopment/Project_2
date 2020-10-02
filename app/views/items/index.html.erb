@@ -1,20 +1,29 @@
-<h1> Products </h1>
+<center>
+<% if flash.now[:message] %>
+  <div class="alert alert-primary"> 
+    <%= flash.now[:message]%>
+  </div>
+<%end%>
+</center>
 
+<% if @nothing_searched == false %>
+<h1> Products </h1>
   <ul <% if @one_category %>
             class="One_Category"
           <%else%>
             class="All_Categories"
           <%end%>>
-    <% @categories.each do |category|%>
-      <h3> <%= category.name.titleize %></h3>
-        <% @items.each do |item|%>
-          <%if item.category_id == category.id%>
-            <li>
-              <%= link_to item.name, item_path(item.id), class:"shop" %> 
-              <%= button_to "Add To Order", add_order_path(item.id), method: "post", class:"btn btn-outline-success btn-sm"%>
-            </li>
-          <%end%>
+      <% @categories.each do |category|%>
+        <h3> <%= category.name.titleize %></h3>
+          <% @items.each do |item|%>
+            <%if item.category_id == category.id%>
+              <li>
+                <%= link_to item.name, item_path(item.id), class:"shop" %> 
+                <%= button_to "Add To Order", add_order_path(item.id), method: "post", class:"btn btn-outline-success btn-sm"%>
+              </li>
+            <%end%>
+        <%end%>
       <%end%>
-    <%end%>
   </ul>
+<%end%>
 

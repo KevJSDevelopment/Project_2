@@ -57,6 +57,11 @@ div.pending {
   text-align: right;
 }
 
+#pending-order.pending {
+  text-align: left;
+}
+
+
 .footer_container {
   background-color: #1F2F39;
   position: absolute;
@@ -243,3 +248,22 @@ div.price {
   text-align: right;
 }
 // end of order index page
+
+// order show page
+
+.order-item-list {
+  text-align: left;
+}
+
+.order-ul {
+  padding: 0%;
+}
+
+#back-to-orders {
+  float: left;
+}
+
+#order-form.form {
+  width: 550px;
+}
+//
