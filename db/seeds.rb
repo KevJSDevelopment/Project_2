@@ -33,7 +33,7 @@ categories.each do |category|
     Category.create(name: category)
 end
 
-(100).times do 
+(200).times do 
     item = Item.create(name: Faker::Commerce.product_name, price: Faker::Number.decimal(l_digits:2), category_id: Category.all.sample.id, image: Faker::Avatar.image, description: Faker::Food.description)
     # OrderItem.create(item_id: item.id, order_id: orders.sample.id)
     # WishlistItem.create(item_id: item.id, wishlist_id: wishlists.sample.id)

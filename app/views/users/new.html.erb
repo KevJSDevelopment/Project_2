@@ -1,13 +1,11 @@
-<center> <h2 class="make_account"> Create Account </h2> </center>
 
 <% if @user.errors %>
-  <ul>
     <% @user.errors.full_messages.each do |error| %>
-    <li><%= error %></li>
+    <center><div class="alert alert-danger"><%= error %></div></center>
     <% end %>
-  </ul>
 <% end %>
 
+<center> <h2 class="make_account"> Create Account </h2> </center>
 
 
 <%= form_for @user, html: {class: "form"} do |f| %>
